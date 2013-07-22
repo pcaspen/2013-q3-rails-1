@@ -1,11 +1,11 @@
 require 'sinatra'
 
 get "/" do
-	halt erb(:/)
+	halt erb(:"2013q1")
 end
 
-get "/q12013" do
-	halt erb(:q12013)
+get "/2013q1" do
+	halt erb(:"2013q1")
 end
 
 get "/about" do
