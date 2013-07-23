@@ -5,9 +5,15 @@ get "/" do
 end
 
 get "/projects/1" do
-  halt erb(:project1)
+  @project_name = "Project Dolphin"
+  @status_css_class = "on-schedule"
+  @status_text = "ON SCHEDULE"
+  halt erb(:project)
 end
 
 get "/projects/2" do
-  halt erb(:project2)
+  @project_name = "Project Nitro"
+  @status_css_class = "behind-schedule"
+  @status_text = "BEHIND SCHEDULE"
+  halt erb(:project)
 end
