@@ -6,7 +6,11 @@
     <th>Systolic</th>
     <th>Diastolic</th>
   </tr>
-
-  <!-- TODO: add your ERb here -->
-
+  <% @patients.each do |patient| %>
+    <tr>
+	  <td><%= patient.id %></td>
+	  <td><%= patient.systolic %></td>
+	  <td><%= patient.diastolic %></td>
+	</tr>
+  <% end %>
 </table>
