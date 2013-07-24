@@ -9,8 +9,20 @@
   <% @patients.each do |patient| %>
     <tr>
 	  <td><%= patient.id %></td>
-	  <td><%= patient.systolic %></td>
+
+
+	  <td><% if patient.systolic >=140 %>
+      <span style='color:red'><%= patient.systolic %>
+        <% elsif patient.systolic >= 120 %>
+      <span style='color:yellow'><%= patient.systolic %> 
+        <% else %>
+      <span style='color:green'><%= patient.systolic %>  
+        <% end %>
+	  </td>
+
+
 	  <td><%= patient.diastolic %></td>
 	</tr>
   <% end %>
 </table>
+
