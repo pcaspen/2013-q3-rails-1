@@ -1,6 +1,31 @@
 <table border="1">
   <tr>
     <th>Name</th>
+    <% @exercises.each do |exercise| %>
+    <th>Grade for <%= exercise.directory %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <th>1-student.first_name student.last.name</th>
+    <td>1-student.first_name's grade for 1-exercise.directory</td>
+    <td>1-student.first_name's grade for 2-exercise.directory</td>
+  </tr>
+  <tr>
+    <th>2-student.first_name student.last.name</th>
+    <td>2-student.first_name's grade for 1-exercise.directory</td>
+    <td>2-student.first_name's grade for 2-exercise.directory</td>
+  </tr>
+    <tr>
+    <th>3-student.first_name student.last.name</th>
+    <td>3-student.first_name's grade for 1-exercise.directory</td>
+    <td>3-student.first_name's grade for 2-exercise.directory</td>
+  </tr>
+</table>
+
+
+<!-- <table border="1">
+  <tr>
+    <th>Name</th>
     <th>Grade for 1-exercise.directory</th>
     <th>Grade for 2-exercise.directory</th>
   </tr>
@@ -19,4 +44,4 @@
     <td>3-student.first_name's grade for 1-exercise.directory</td>
     <td>3-student.first_name's grade for 2-exercise.directory</td>
   </tr>
-</table>
+</table> -->
