@@ -22,10 +22,14 @@
   	<td class='money'>
       $<%= apartment.rent_per_month %>.00
     </td>
-
-
     <td>
-      <%= apartment.does_allow_pets %>
+      <% if apartment.does_allow_pets == nil %>
+      ?
+      <% elsif apartment.does_allow_pets == true %>
+      Yes
+      <% else %>
+      No
+      <% end %>
     </td>
     <td>
       <%= apartment.url %>
@@ -36,3 +40,5 @@
   </tr>
   <% end %>
 </table>
+
+
