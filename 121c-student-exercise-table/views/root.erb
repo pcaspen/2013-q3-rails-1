@@ -1,16 +1,11 @@
 <table border="1">
   <% @students.each do |student| %>
     <tr>
-  	
-    <th>
-       	<%= student.first_name %> <%= student.last_name %>
-    </th>	
-         
-    <td>
-    	
-    </td>
-    <td>C1</td>
-    
-  </tr>
+  	  <th><%= student.first_name %> <%= student.last_name %></th>	
+      <% @exercises.each do |exercise| %>   
+      <td><%= exercise.directory %></td>
+      <% end %>
+    </tr>
   <% end %>
 </table>
+
