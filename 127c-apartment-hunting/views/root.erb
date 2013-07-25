@@ -1,0 +1,36 @@
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<h1>Apartments</h1>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Address</th>
+    <th>Rent</th>
+    <th>Pets</th>
+    <th>Link</th>
+    <th>Map</th>
+  </tr>
+
+<% @apartments.each do |apartment| %>
+  <tr>
+    <td>
+    	<%= apartment.id %>
+    </td>
+    <td>
+    	<%= apartment.address %>
+  	</td>
+  	<td>
+      <%= apartment.rent_per_month %>
+    </td>
+    <td>
+      <%= apartment.does_allow_pets %>
+    </td>
+    <td>
+      <%= apartment.url %>
+    </td>
+    <td>
+      <%= apartment.id %>
+    </td>  
+  </tr>
+  <% end %>
+</table>
