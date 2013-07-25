@@ -32,10 +32,10 @@
       <% end %>
     </td>
     <td>
-      <a href a"<%= apartment.url %>"><%= apartment.url %></a>
+      <a href="<%= apartment.url %>"><%= apartment.url %></a>
     </td>
     <td>
-      <%= apartment.id %>
+      <a href="http://maps.google.com?q=<%= apartment.address %>+Boulder,+CO">map</a>
     </td>  
   </tr>
   <% end %>
