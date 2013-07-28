@@ -5,12 +5,13 @@ get "/" do
   halt erb(:index)
 end
 
-get "/apartments/1" do
-  # TODO first: add code here to load @apartment
-  halt erb(:show1)
+get "/apartments/:id" do
+  id = params[:id]	
+  @apartment = Apartment.find(id)
+  halt erb(:show)
 end
 
-get "/apartments/2" do
-  # TODO first: add code here to load @apartment
-  halt erb(:show2)
-end
+# get "/apartments/2" do
+#   @apartment = Apartment.find(2)
+#   halt erb(:show)
+# end
