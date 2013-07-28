@@ -12,6 +12,13 @@ get "/apartments/:id" do
 end
 
 
+# CAN ALSO WRITE IT LIKE THIS:
+
+# get "/apartments/:id" do
+#   @apartment = Apartment.find(params[:id])
+#   halt erb(:show)
+# end
+
 
 # require '../dvc-sinatra.rb'
 
