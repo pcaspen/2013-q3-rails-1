@@ -6,34 +6,29 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Apartment.create(
-  address: "16th and Grove St",
-  rent_per_month: 1550,
-  num_bedrooms: 2,
-  does_allow_pets: nil,
-  url: "http://boulder.craigslist.org/apa/3955759859.html"
+Duck.create(
+  tag_number: "73f",
+  wingspan_in_cm: "50",
+  birth_date: "2013-07-25",
+  can_fly: false,
 )
 
-Apartment.create(
-  address: "near Spine and White Rock Circle",
-  rent_per_month: 800,
-  num_bedrooms: 1,
-  does_allow_pets: nil,
-  url: "http://boulder.craigslist.org/apa/3955744060.html"
+Duck.create(
+  tag_number: "75f",
+  wingspan_in_cm: "49",
+  birth_date: "2013-07-25",
+  can_fly: false,
+)
+Duck.create(
+  tag_number: "72f",
+  wingspan_in_cm: "52",
+  birth_date: "2013-07-25",
+  can_fly: false,
+)
+Duck.create(
+  tag_number: "76a",
+  wingspan_in_cm: "51",
+  birth_date: "2013-07-25",
+  can_fly: false,
 )
 
-Apartment.create(
-  address: "Cascade Av at 17th St",
-  rent_per_month: 2600,
-  num_bedrooms: 4,
-  does_allow_pets: false,
-  url: "http://boulder.craigslist.org/apa/3924175915.html"
-)
-
-Apartment.create(
-  address: "Broadway by Proto's Pizza",
-  rent_per_month: 1350,
-  num_bedrooms: 1,
-  does_allow_pets: true,
-  url: "http://boulder.craigslist.org/apa/3955428114.html"
-)
