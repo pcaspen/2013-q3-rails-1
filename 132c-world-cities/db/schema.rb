@@ -11,6 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130729000047) do
+
+  create_table "world_cities", :force => true do |t|
+    t.string  "name"
+    t.string  "country"
+    t.integer "time_zone_offset"
+    t.float   "population_in_millions"
+    t.text    "country_flag_filename"
+  end
 
 end
