@@ -1,53 +1,59 @@
 <h1>Search for vehicles of a specific color by selecting a tile below:</h1>
+
 <table>
   <tr>
-  	<% @colors.each do |color| %>
-    <td style="background-color:<%= color.html_color_code %>">
+    <th></th>
+    <th>purple</th>
+    <th>yellow</th>
+    <th>green</th>
+    <th>fuschia</th>
+  <tr>
+    <th>car</th>
+    <td style="background-color:#6666FF">
+      <a href="/1/1">
+        <img src="/images/car.png">
+      </a>
+    </td>
+    <td style="background-color:#FFFF66">
+      <a href="/1/1">
+        <img src="/images/car.png">
+      </a>
+    </td>
+    <td style="background-color:#66FF66">
+      <a href="/1/1">
+        <img src="/images/car.png">
+      </a>
+    </td>    
+    <td style="background-color:#CC00FF">
+      <a href="/1/1">
+        <img src="/images/car.png">
+      </a>
+    </td>
+  </tr>
+
+
+  <tr>
+    <th>bicycle</th>
+    <td style="background-color:#6666FF">
       <a href="/1/1">
         <img src="/images/bike.png">
       </a>
     </td>
-    <% end %>
+    <td style="background-color:#FFFF66">
+      <a href="/1/1">
+        <img src="/images/bike.png">
+      </a>
+    </td>
+    <td style="background-color:#66FF66">
+      <a href="/1/1">
+        <img src="/images/bike.png">
+      </a>
+    </td>    
+    <td style="background-color:#CC00FF">
+      <a href="/1/1">
+        <img src="/images/bike.png">
+      </a>
+    </td>
   </tr>
 </table>
 
-<!-- ANOTHER EXAMPLE -->
-
-<!-- <table border="1">
-  <tr>
-    <th>Name</th>
-    <% @exercises.each do |exercise| %>
-    <th>Grade for <%= exercise.directory %></th>
-      <% end %>
-    </tr>
-    <tr>
-      <% @students.each do |student| %>
-      <th><%= student.first_name %> <%= student.last_name %></th>
-      <% @exercises.each do |exercise| %>
-      <td>(<%= student.first_name %>'s grade for <%= exercise.directory %>)</td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>  -->
-
-
-<!-- <table>
-  <tr>
-    <th></th>
-    <% @colors.each do |color| %>
-      <th><%= color.name %></th>
-    <% end %>
-  </tr>
-  <% @vehicles.each do |vehicle| %>
-    <tr>
-      <th><%= vehicle.name %></td>
-      <% @colors.each do |color| %>
-        <td style="background-color:<%= color.html_color_code %>">
-          <a href="/<%= color.id %>/<%= vehicle.id %>">
-            <img src="/images/<%= vehicle.image_filename %>">
-          </a>
-        </td>
-      <% end %>
-    </tr>
-  <% end %>
-</table> -->
