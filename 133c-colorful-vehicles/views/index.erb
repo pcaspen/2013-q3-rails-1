@@ -12,8 +12,8 @@
     <th><%= vehicle.name %></th>
     <% @colors.each do |color| %>
     <td style="background-color:<%= color.html_color_code %>">
-      <a href="/<%= color.id %>/1">
-        <img src="/images/car.png">
+      <a href="/<%= color.id %>/<%= vehicle.id %>">
+        <img src="/images/<%= vehicle.image_filename %>">
       </a>
         <% end %>
       </td>
