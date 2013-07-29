@@ -3,32 +3,18 @@
 <table>
   <tr>
     <th></th>
-    <th>purple</th>
-    <th>yellow</th>
-    <th>green</th>
-    <th>fuschia</th>
+    <% @colors.each do |color| %>
+    <th><%= color.name %></th>
+    <% end %>
   <tr>
     <th>car</th>
-    <td style="background-color:#6666FF">
+    <% @colors.each do |color| %>
+    <td style="background-color:<%= color.html_color_code %>">
       <a href="/1/1">
         <img src="/images/car.png">
       </a>
     </td>
-    <td style="background-color:#FFFF66">
-      <a href="/1/1">
-        <img src="/images/car.png">
-      </a>
-    </td>
-    <td style="background-color:#66FF66">
-      <a href="/1/1">
-        <img src="/images/car.png">
-      </a>
-    </td>    
-    <td style="background-color:#CC00FF">
-      <a href="/1/1">
-        <img src="/images/car.png">
-      </a>
-    </td>
+    <% end %>
   </tr>
 
 
