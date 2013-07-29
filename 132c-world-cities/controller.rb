@@ -10,3 +10,4 @@ get "/cities/:id" do
   @city = WorldCity.find(id)
   halt erb(:show)
 end
+
