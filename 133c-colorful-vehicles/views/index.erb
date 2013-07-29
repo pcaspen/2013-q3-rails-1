@@ -2,7 +2,7 @@
 <table>
   <tr>
   	<% @colors.each do |color| %>
-    <td style="background-color:#7777FF">
+    <td style="background-color:<%= color.html_color_code %>">
       <a href="/1/1">
         <img src="/images/bike.png">
       </a>
