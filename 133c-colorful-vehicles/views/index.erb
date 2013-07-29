@@ -1,16 +1,18 @@
-<p>Search for vehicles of a specific color by selecting a tile below:</p>
-<!-- <table>
+<h1>Search for vehicles of a specific color by selecting a tile below:</h1>
+<table>
   <tr>
+  	<% @colors.each do |color| %>
     <td style="background-color:#7777FF">
       <a href="/1/1">
         <img src="/images/bike.png">
       </a>
     </td>
+    <% end %>
   </tr>
-</table> -->
+</table>
 
 
-<table>
+<!-- <table>
   <tr>
     <th></th>
     <% @colors.each do |color| %>
@@ -29,4 +31,4 @@
       <% end %>
     </tr>
   <% end %>
-</table>
+</table> -->
