@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-BraceletLine.create(font_size: 16, text: "Robert T Goodman")
+BraceletLine.create(
+	font_size: 16, 
+	text: "Robert T Goodman"
+	)
 
-BraceletLine.create(font_size: 12, text: "May the wind be always at your back")
+BraceletLine.create(
+	font_size: 12, 
+	text: "May the wind be always at your back"
+	)
