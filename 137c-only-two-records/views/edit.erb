@@ -1,12 +1,13 @@
-<h1>Edit line 1</h1>
+<h1>Edit line <%= @bracelet_line.id %></h1>
 <p>
   Font size<br>
-  <%== text_field_tag :font_size, "16", size: 2 %> (between 8 and 12)
+  <%== text_field_tag :font_size, @bracelet_line.font_size, size: 2 %> (between 8 and 12)
 </p>
 <p>
   Text<br>
-  <%== text_field_tag :text, "Robert T Goodman", size: 50 %>
+  <%== text_field_tag :text, @bracelet_line.text, size: 50 %>
 </p>
 <p>
   <%== submit_tag "Update" %>
 </p>
+<p><a href="/">Return to index</a></p>

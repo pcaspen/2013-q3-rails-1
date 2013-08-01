@@ -23,6 +23,13 @@ get "/line2" do
   halt erb(:edit)
 end
 
+post "/line2" do
+  line = 	BraceletLine.find(2)
+  line.font_size = params[:font_size]
+  line.text = params[:text]
+  line.save!
+  redirect "/"
+end 
 
 
 # require '../dvc-sinatra.rb'
