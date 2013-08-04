@@ -5,19 +5,27 @@ get "/" do
 end
 
 get "/1" do
-  # TODO: Write this part
+  halt erb(:question1)
 end
 
 post "/1" do
-  # TODO: Write this part
+  if params[:answer] == "c"
+  	redirect "/2"
+  else
+    redirect "/1"
+  end  	
 end
 
 get "/2" do
-  # TODO: Write this part
+  halt erb(:question2)
 end
 
 post "/2" do
-  # TODO: Write this part
+  if params[:answer] == "a"
+  	redirect "/done"
+  else
+    redirect "/2"
+  end  	
 end
 
 get "/done" do
