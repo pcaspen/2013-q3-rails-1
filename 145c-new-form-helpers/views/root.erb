@@ -1,13 +1,34 @@
 First name<br>
-<%== text_field_tag :first_name, "Abe" %>
+  <%== text_field_tag :first_name, "Abe" %>
 <hr>
-
 Biography<br>
-<%== text_area_tag :biography, "As a young boy, Abe lived in a log cabin." %>
+  <%== text_area_tag :biography, "As a young boy, Abe lived in a log cabin." %>
 <hr>
-
-<!-- TODO: fill out this part -->
-
+Deceased<br>
+  <%== check_box_tag :is_deceased, "on", true %>
 <hr>
-
+Party<br>
+  <%==radio_button_tag :party, "Democrat", false %>
+  Democrat
+  <%==radio_button_tag :party, "Republican", true %>
+  Republican
+  <%==radio_button_tag :party, "Whig", false %>
+  Whig
+<hr>
+Highest office held<br>
+  <%== select_tag :office, options_for_select([
+  	["President", 		"POTUS"],
+	["Vice President", 	"VP"]
+  ], "POTUS"),
+	prompt: "Choose an office..." %>
+<hr>
+Occupation before politics<br>
+  <%== select_tag :occupation, options_for_select([
+  	["Lawyer", 		"lawyer"],
+	["Farmer", 		"farmer"],
+	["Soldier",		"soldier"],
+	["Sailor", 		"sailor"]
+  ], "lawyer"),
+	prompt: "Choose an occupation..." %>
+<hr>
 <%== submit_tag "Revise history" %>

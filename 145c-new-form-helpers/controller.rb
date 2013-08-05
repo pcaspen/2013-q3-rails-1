@@ -6,5 +6,8 @@ get "/" do
 end
 
 post "/" do
-  raise params.inspect
+  occupation 	= Occupation.find[:id]
+  occupation	= params[:name]
+  occupation.save!
+  redirect "/"
 end
