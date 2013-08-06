@@ -1,3 +1,30 @@
 <h1>Page 2 of 4: Shipping</h1>
 
-<!-- TODO: write this -->
+<h2>Choose shipping speed</h2>
+
+<%== radio_button_tag :ship_speed, "ground", 
+  @customer.ship_speed %>Ground
+  <br>
+<%== radio_button_tag :ship_speed, "next_day",
+  @customer.ship_speed %>Next Day
+
+<h2>Enter shipping address</h2>
+
+Address1<br>
+<%== text_field_tag :ship_address1 %><br>
+
+City<br>
+<%== text_field_tag :ship_city %><br>
+
+State<br>
+<%== select_tag :ship_state, options_from_collection_for_select(
+  @u_s_states, :abbreviation, :name, @customer.ship_state),
+  prompt: "" %><br>
+
+ZIP code<br>
+<%== text_field_tag :ship_zip_code, "", size: 11 %><br>
+
+<p>
+<%== submit_tag "Go back" %>
+<%== submit_tag "Continue" %>
+</p>
