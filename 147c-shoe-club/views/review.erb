@@ -7,7 +7,7 @@
 <h2>Shipping speed</h2>
 <p><% if @customer.ship_speed == "ground" %>
 	 Ground
-   <% else %>
+   <% elseif @customer.ship_speed == "next_day" %>
      Next Day
    <% end %>  	 
 </p>

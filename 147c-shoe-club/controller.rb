@@ -50,7 +50,7 @@ post "/shipping" do
     @customer.ship_city = params[:ship_city]
     @customer.ship_state = params[:ship_state]
     @customer.ship_zip_code = params[:ship_zip_code]
-    if @customer.save!
+    if @customer.save
     redirect "/billing" 
     else
     halt erb(:shipping)
@@ -78,12 +78,12 @@ post "/billing" do
       @customer.bill_zip_code = @customer.ship_zip_code
     else
       @customer.bill_address_same_as_ship = false
-      @customer.bill_address1 = params[:address1]
-      @customer.bill_city     = params[:city]
-      @customer.bill_state    = params[:state]
-      @customer.bill_zip_code = params[:zip_code]
+      @customer.bill_address1 = params[:bill_address1]
+      @customer.bill_city     = params[:bill_city]
+      @customer.bill_state    = params[:bill_state]
+      @customer.bill_zip_code = params[:bill_zip_code]
     end 
-    if @customer.save!
+    if @customer.save
       redirect "/review" 
     else
       halt erb(:billing)
