@@ -2,16 +2,14 @@
 
 <h1>Page 1 of 4: Sign up</h1>
 
-<p>
-  <b>First name</b><br>
-  <%== text_field_tag :first_name, "" %>
-</p>
+<h3>First name</h3>
+<%== text_field_tag :first_name, @customer.first_name %>
+
+<h3>Last name</h3>
+<%== text_field_tag :last_name, @customer.first_name %>
 
 <p>
-  <b>Last name</b><br>
-  <%== text_field_tag :last_name, "" %>
+  <%== submit_tag "Go back" %>
+  or
+  <%== submit_tag "Continue" %>
 </p>
-
-<p>
-	<%== submit_tag "Go back" %> or <%== submit_tag "Continue" %>
-</p>	
