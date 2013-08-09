@@ -9,16 +9,16 @@ post "/" do
   password = params[:password]
   user = User.where(username: username).first
   if user == nil
-    @error = "Unknown username"
+  	@error = "Unknown user"
     @old_username = username
     halt erb(:login)
-  elsif user.password != password
-    @error = "Wrong password"
-    @old_username = username
-    halt erb(:login)
-  else
-    redirect "/success"
+  elsif 
+  	user.password != password
+  	@error = "Wrong password"
+  	@old_username = username
+  	halt erb(:login)
   end
+  redirect "/success"	
 end
 
 get "/success" do

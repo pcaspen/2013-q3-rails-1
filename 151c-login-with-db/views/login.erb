@@ -1,6 +1,6 @@
 <% if @error != nil %>
   <b>Error: <%= @error %></b>
-<% end %>
+<% end %>  	
 
 <h1>Please login</h1>
 
@@ -8,8 +8,9 @@
 	<%== text_field_tag :username, @old_username %></p>
 
 <p>Password<br>
-	<%== text_field_tag :password %></p>
+  <%== text_field_tag :password %></p>
 
-<p><%== submit_tag "Login" %></p>	
+<p><%== submit_tag "Login" %>  	
 
 <p>(Note: username/password is abe/123 or amy/456)</p>
+
