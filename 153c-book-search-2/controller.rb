@@ -4,13 +4,17 @@ get "/" do
   @books = Book.all
   @topics = ['JavaScript', 'jQuery', 'Ruby', 'CSS']
 
-  # TODO: Change the following line so @authors is filled out with whatever
-  # authors are in the books table, not what's supplied below.
-  @authors = ['Ross Olsen', 'author 2', 'author 3']
-
-  # TODO: Change the following line so @year is filled out with whatever
-  # years are in the books table, not what's supplied below.
-  @years = ['2011', '2012', '2013']
+  @authors = []
+    @books.each do |book|
+    @authors << book.author
+  end
+  @authors = @authors.sort.uniq  
+    
+  @years = []
+    @books.each do |book|
+    @years << book.publication_year
+  end
+  @years = @years.sort.uniq  
 
   halt erb(:search)
 end
@@ -18,6 +22,17 @@ end
 post "/" do
   # TODO: Write this handler so it redirects to the right link, based
   # on the drop down value that the user chose.
+  #author = params[:author]
+  topic = params[:topic]
+  author = params[:author]
+  year = params[:year]
+  if topic != ""
+    redirect "topic/#{topic}"
+  elsif  author != ""
+    redirect "/author/#{URI.escape(author)}"
+  else 
+    redirect "/year/#{year}"  
+  end  
 end
 
 get "/year/:year" do
