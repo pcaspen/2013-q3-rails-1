@@ -58,3 +58,7 @@ end
 
 # TODO: Write a GET handler for routes like /isbn/0596517742.  It will
 # use the show.erb page, which has been supplied to you.
+get "/isbn/:isbn" do
+  @book = Book.where(isbn: params[:isbn]).first
+  halt erb(:show)
+end  
