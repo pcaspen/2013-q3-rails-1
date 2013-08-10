@@ -4,18 +4,11 @@
   <% @people.each do |person| %>
     <li><%= person.name %></li>
   <% end %>
-
+    <% numbers = [1, 2, 3] %>
+    <% numbers.each do |number| %>
   <li>
-    <%== text_field_tag :new_name_1, "" %>
+    <%== text_field_tag "new_name_#{number}", "" %>
   </li>
-
-  <li>
-    <%== text_field_tag :new_name_2, "" %>
-  </li>
-
-  <li>
-    <%== text_field_tag :new_name_3, "" %>
-  </li>
+    <% end %>
 </ul>
-
 <%== submit_tag "Add" %>
