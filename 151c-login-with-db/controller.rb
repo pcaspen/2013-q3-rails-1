@@ -5,20 +5,20 @@ get "/" do
 end
 
 post "/" do
-  username = params[:username]
-  password = params[:password]
-  user = User.where(username: username).first
-  if user == nil
-  	@error = "Unknown user"
-    @old_username = username
-    halt erb(:login)
-  elsif 
-  	user.password != password
-  	@error = "Wrong password"
-  	@old_username = username
-  	halt erb(:login)
+  @username = User.where(username: params[:username]).first
+  if @username == nil
+  	@error = "Unknown username"
+    halt erb(:login)	
+  elsif @username != nil
+    @old_username = params[:username]
+    @password = User.where(password: params[:password]).first
+    if @password == nil
+      @error = "Wrong password"
+      halt erb(:login)
+    elsif @password != nil
+   	  redirect "/success"
+   	end  
   end
-  redirect "/success"	
 end
 
 get "/success" do
