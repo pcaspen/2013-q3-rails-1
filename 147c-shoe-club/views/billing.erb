@@ -1,19 +1,24 @@
+<%== error_messages_for @customer %>
+
 <h1>Page of 3 of 4: Billing</h1>
 
 <h2>Enter billing address</h2>
 
-<p><%== check_box_tag :bill_address_same_as_ship, "on" %>
-	Same as shipping address</p>
+<p>
+<%== check_box_tag :bill_address_same_as_ship, "on", @customer.bill_address_same_as_ship %>
+  Same as shipping address</p>
 
-<p>Address1<br> <%== text_field_tag :bill_address1 %><br>
+<p>Address1<br>
+   <%== text_field_tag :bill_address1, @customer.bill_address1 %><br>
 
-   City<br> 	<%== text_field_tag :bill_city %><br>
+City<br> 	
+  <%== text_field_tag :bill_city, @customer.bill_city %><br>
 
-   State<br>	<%== select_tag :bill_state, 
-                  options_from_collection_for_select(
-                  	@states, :abbreviation, :name),
-                    prompt: "" %>
+State<br>	
+  <%== select_tag :bill_state, options_from_collection_for_select(
+    @states, :abbreviation, :name, @customer.bill_state),
+    prompt: "" %>
 
-<p>Zip code<br>	<%== text_field_tag :sbill_zip_code %><br></p>   	
+<p>Zip code<br>	<%== text_field_tag :bill_zip_code, @customer.bill_zip_code %><br></p>   	
 
 <p><%== submit_tag "Go back" %> or <%== submit_tag "Continue" %>	

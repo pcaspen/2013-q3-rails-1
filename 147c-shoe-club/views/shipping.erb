@@ -1,22 +1,28 @@
+<%== error_messages_for @customer %>
+
 <h1>Page 2 of 4: Shipping</h1>
 
 <h2>Choose shipping speed</h2>
 
-<p><%== radio_button_tag :ship_speed, "ground" %>Ground<br>
-   <%== radio_button_tag :ship_speed, "next day" %>Next Day</p>
+<p><%== radio_button_tag :ship_speed, "ground", @customer.ship_speed == "ground" %>Ground<br>
+   <%== radio_button_tag :ship_speed, "next day", @customer.ship_speed == "next day" %>Next Day</p>
 
 <h2>Enter shipping address</h2>
 
-<p>Address1<br> <%== text_field_tag :ship_address1 %><br>
+<p>
+Address1<br> 
+  <%== text_field_tag :ship_address1, @customer.ship_address1 %><br>
 
-   City<br> 	<%== text_field_tag :ship_city %><br>
+City<br> 	
+  <%== text_field_tag :ship_city, @customer.ship_city %><br>
 
-   State<br>	<%== select_tag :ship_state, 
-                  options_from_collection_for_select(
-                  	@states, :abbreviation, :name),
-                    prompt: "" %>
+State<br>	
+  <%== select_tag :ship_state, options_from_collection_for_select(
+    @states, :abbreviation, :name, @customer.ship_state),
+    prompt: "" %><br>
 
-<p>Zip code<br>	<%== text_field_tag :ship_zip_code %><br></p>   	
+Zip code<br>
+  <%== text_field_tag :ship_zip_code, @customer.ship_zip_code %><br>  	
 
-<p><%== submit_tag "Go back" %> or <%== submit_tag "Continue" %>
+<p><%== submit_tag "Go back" %> or <%== submit_tag "Continue" %></p>
 

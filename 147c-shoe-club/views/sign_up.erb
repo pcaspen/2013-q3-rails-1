@@ -3,10 +3,10 @@
 <h1>Page 1 of 4: Sign up</h1>
 
 <h2>First name</h2>
-<%== text_field_tag :first_name %>
+<%== text_field_tag :first_name, @customer.first_name %>
 
 <h2>Last name</h2>
-<%== text_field_tag :last_name %>
+<%== text_field_tag :last_name, @customer.last_name %>
 
 <p>
 <%== submit_tag "Go back" %> or 
