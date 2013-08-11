@@ -10,15 +10,15 @@ get "/1" do
   @answer_a = "15"
   @answer_b = "40"
   @answer_c = "13"
-  halt erb(:question)
+  halt erb(:questions)
 end
 
 post "/1" do
-  if params[:answer] == "c"
+  if params[:answer] == "13"
   	redirect "/2"
   else
     redirect "/1"
-  end  	
+  end	
 end
 
 get "/2" do
@@ -26,16 +26,16 @@ get "/2" do
   @question = "What is 5 - 3?"
   @answer_a = "2"
   @answer_b = "3"
-  @answer_c = "8"	
-  halt erb(:question)
+  @answer_c = "8"
+  halt erb(:questions)
 end
 
 post "/2" do
-  if params[:answer] == "a"
+  if params[:answer] == "2"
   	redirect "/done"
-  else
-    redirect "/2"
-  end  	
+  else	
+  	redirect "/2"
+  end	
 end
 
 get "/done" do
