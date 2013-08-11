@@ -11,31 +11,34 @@
     <th>Is dependent</th>
     <th></th>
   </tr>
+  
   <% @persons.each do |person| %>
-  <tr>
-    <td><%= person.id %></td>
-    <td><%= person.relation_to_filer %></td>
-    <td><%= person.first_name %></td>
-    <td><%= person.last_name %></td>
-    <td><%= person.date_of_birth %></td>
-    <td><%= person.gender %></td>
-    <td><%= person.is_dependent %></td>
-    <td></td>
-  </tr>
-  <% end %>
     <tr>
+      <td><%= person.id %></td>
+      <td><%= person.relation_to_filer %></td>
+      <td><%= person.first_name %></td>
+      <td><%= person.last_name %></td>
+      <td><%= person.date_of_birth %></td>
+      <td><%= person.gender %></td>
+      <td><%= person.is_dependent %></td>
+      <td></td>
+    </tr>
+  <% end %>
+
+  <tr>
     <td></td>
     <td><%== select_tag :relation_to_filer, options_for_select([
-          ["Self",  "self"],
-          ["Spouse", "spouse"]
-          ], ),
-          prompt: "Relation to filer..." %></td>
+            ["self",  "self"], ["spouse", "spouse"]], ), 
+            prompt: "Relation to filer..." %></td>
     <td><%== text_field_tag :first_name %></td>
     <td><%== text_field_tag :last_name %></td>
     <td><%== text_field_tag :date_of_birth %></td>
     <td><%== radio_button_tag :gender, "male" %>Male
         <%== radio_button_tag :gender, "female" %>Female</td>
     <td><%== check_box_tag :is_dependent, "on" %></td>
-    <td><%== submit_tag "Add" %></td>
+    <td><%== submit_tag "Add" %></td>    
   </tr>
+
 </table>
+
+  
