@@ -5,12 +5,10 @@ get "/" do
 end
 
 post "/" do
-  if params[:chosen_page] == "/page1"
+  if params[:page_number] == "page1"
   	redirect "/page1"
-  elsif params[:chosen_page] == "/page2"
-    redirect "/page2"
-  else 
-    redirect "/"  	
+  elsif params[:page_number] == "page2"
+  	redirect "/page2"
   end
 end
 
