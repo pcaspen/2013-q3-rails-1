@@ -4,34 +4,43 @@ get "/" do
   @books = Book.all
   @topics = ['JavaScript', 'jQuery', 'Ruby', 'CSS']
 
+  # TODO: Change the following line so @authors is filled out with whatever
+  # authors are in the books table, not what's supplied below.
+
+  # WHY DOESN'T THIS WORK?
+  # @authors = []
+  # Books.all.each do |author|
+  #   @authors << books.author 
+  # end
+  # @authors = @authors.sort.uniq  
+
   @authors = []
-    @books.each do |book|
+  @books.each do |book|
     @authors << book.author
   end
-  @authors = @authors.sort.uniq  
-    
+  @authors = @authors.sort.uniq
+
+  # TODO: Change the following line so @year is filled out with whatever
+  # years are in the books table, not what's supplied below.
   @years = []
-    @books.each do |book|
+  @books.each do |book|
     @years << book.publication_year
   end
-  @years = @years.sort.uniq  
+  @years = @years.sort.uniq
 
   halt erb(:search)
 end
 
 post "/" do
-  # TODO: Write this handler so it redirects to the right link, based
-  # on the drop down value that the user chose.
-  #author = params[:author]
-  topic = params[:topic]
   author = params[:author]
+  topic = params[:topic]
   year = params[:year]
-  if topic != ""
-    redirect "topic/#{topic}"
-  elsif  author != ""
+  if params[:author] != ""
     redirect "/author/#{URI.escape(author)}"
-  else 
-    redirect "/year/#{year}"  
+  elsif params[:topic] != ""
+    redirect "topic/#{topic}"
+  elsif params[:year] != ""
+    redirect "year/#{year}"   
   end  
 end
 
@@ -61,4 +70,4 @@ end
 get "/isbn/:isbn" do
   @book = Book.where(isbn: params[:isbn]).first
   halt erb(:show)
-end  
+end
