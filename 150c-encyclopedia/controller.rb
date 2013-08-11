@@ -6,7 +6,7 @@ get "/" do
 end
 
 get "/:word" do
-  word = params[:word]
   @entry = EncyclopediaEntry.where(word: params[:word]).first
   halt erb(:show)
 end
+
