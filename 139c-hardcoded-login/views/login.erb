@@ -1,19 +1,12 @@
-<% if @error %>
-  <p style="color:red">Error: <%= @error %></p>
-<% end %>
-
+<%= @error %>
 <h1>Login</h1>
 
-<p>
-	Username<br>
-	<%== password_field_tag :username, @old_username %>
-</p>
+<p>Username<br>
+	<%== text_field_tag :username, @old_username %></p>
 
-<p>
-	Password<br>
-	<%== password_field_tag :password %>
-</p>
+<p>Password<br>
+	<%== text_field_tag :password %></p>
 
-<p>
-	<%== submit_tag "Login" %>
+<p><%== submit_tag "Login" %>	
+
 <p>(Username is amy, password is 123)</p>

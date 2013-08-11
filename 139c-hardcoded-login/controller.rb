@@ -1,23 +1,21 @@
 require '../dvc-sinatra.rb'
 
 get "/" do
+  
   halt erb(:login)
 end
 
 post "/" do
   if params[:username] != "amy"
-   	@error = "Uknown username"
+    @error = "Unknown username"
+    halt erb(:login)
+  elsif params[:password] != "123"
+  	@old_username = "amy"
+  	@error = "Incorrect password"
   	halt erb(:login)
-  end
-
-  if params[:password] != "123"
-   	@error = "Uknown password"
-    @old_username = params[:username]
-  	halt erb(:login)
-  else
-
-  	redirect "/welcome" 
-  end	
+  else	
+    redirect "/welcome"
+  end  
 end
 
 get "/welcome" do
