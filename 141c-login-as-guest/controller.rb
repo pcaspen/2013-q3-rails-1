@@ -4,8 +4,9 @@ get "/" do
   halt erb(:login)
 end
 
+# TODO: Change this POST handler's code to handle the login as guest checkbox
 post "/" do
-  if params[:guest_login] != nil
+  if params[:guest_login] != false
     redirect "/welcome"
   end  
 
