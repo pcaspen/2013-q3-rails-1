@@ -9,15 +9,17 @@ get "/login" do
 end
 
 post "/login" do
-  @username = params[:username]	
-  member = Member.where(username: params[:username]).first
-  if @username == member.username
-    redirect "/reservations/1" 
-  else  
-    redirect "/reservations/2"
-  end  
+  @username = params[:username]
+  Member.all.each do |member|
+	  if @username == member.username
+	    redirect "/reservations/#{member.id}"
+	  end  
+  end
+  halt erb(:login)
 end
 
-get "/reservations/1" do
+get "/reservations/:id" do
+	@member = Member.where(id: params[:id]).first
+	@username == params[:username]
   halt erb(:reservations)
 end
