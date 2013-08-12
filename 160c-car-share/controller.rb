@@ -23,3 +23,12 @@ get "/reservations/:id" do
 	@username == params[:username]
   halt erb(:reservations)
 end
+
+post "/reservations/:id" do
+	if params[:commit] == "Logout"
+		redirect "/"
+	end	
+	@member = Member.where(id: params[:id]).first
+	@username == params[:username]
+  halt erb(:reservations)
+end
