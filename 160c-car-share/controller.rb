@@ -10,11 +10,19 @@ end
 
 post "/login" do
   @username = params[:username]
-  Member.all.each do |member|
-	  if @username == member.username
-	    redirect "/reservations/#{member.id}"
-	  end  
-  end
+  @password = params[:password]
+  @member = Member.where(username: @username).first
+	if @member == nil
+		@error = "Error: Unknown username"
+		halt erb(:login)
+	else
+	  if @member.password != @password
+	  	@error = "Error: Wrong password"
+	  	halt erb(:login)
+	  else	
+	    redirect "/reservations/#{@member.id}"
+	  end
+	end  
   halt erb(:login)
 end
 

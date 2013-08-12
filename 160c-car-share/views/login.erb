@@ -1,14 +1,10 @@
-<% if @username == nil %>
-  <!-- no message because we're on a GET page -->
-<% else %>
-  <p><b>Error: Unknown username</b></p>
-<% end %>
+<p><b><%= @error %></b></p>
 
 <h1>Car Share login</h1>
 
 <p>
   Username<br>
-  <%== text_field_tag :username %>
+  <%== text_field_tag :username, @username %>
 </p>
 
 <p>
