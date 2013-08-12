@@ -10,11 +10,11 @@ end
 
 post "/login" do
   @username = params[:username]	
-  
-  if @username == "jen"
+  member = Member.where(username: params[:username]).first
+  if @username == member.username
     redirect "/reservations/1" 
   else  
-    halt erb(:login)
+    redirect "/reservations/2"
   end  
 end
 
