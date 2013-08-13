@@ -26,19 +26,34 @@ post "/login" do
   halt erb(:login)
 end
 
-get "/reservations/:id" do
-	@member = Member.where(id: params[:id]).first
-	@username == params[:username]
-	@reserved_cars = Car.where(reserving_member_id: params[:id]).all
+get "/reservations/:member_id" do
+  member_id = params[:member_id]
+  @member = Member.find(member_id)
+  @reserved_cars = Car.where(reserving_member_id: @member.id).all
   halt erb(:reservations)
 end
 
-post "/reservations/:id" do
+post "/reservations/:member_id" do
+  member_id = params[:member_id]
+  member = Member.find(member_id)
+
 	if params[:commit] == "Logout"
 		redirect "/"
 	end
-	@cars = Car.all 
-	@member = Member.where(id: params[:id]).first
-	@username == params[:username]
-  halt erb(:reservations)
+
+	Car.all.each do |car|
+    if params[:commit] == "Reserve car #{car.id}"
+      car.reserving_member_id = member_id
+      car.save!
+    end
+  end
+
+  Car.all.each do |car|
+    if params[:commit] == "Return car #{car.id}"
+      car.reserving_member_id = nil
+      car.save!
+    end 
+  end
+
+  redirect "/reservations/#{member_id}"
 end

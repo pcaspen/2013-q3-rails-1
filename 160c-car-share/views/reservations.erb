@@ -7,9 +7,9 @@
 
 <% @reserved_cars.each do |reserved_car| %>
   Car number <%= reserved_car.id %><br>
-  Color: black <br>
-  Model: VW Jetta <br>
-  <%== submit_tag "Return car 2" %> <br>
+  Color: <%= reserved_car.color %><br>
+  Model: <%= reserved_car.model %> <br>
+  <%== submit_tag "Return car #{reserved_car.id}" %> <br>
   <br>
 <% end %>
 
@@ -34,7 +34,7 @@
        </td>
        <td>
           <% if car.reserving_member_id == nil %>
-                <%== submit_tag "Reserve car #{car.id}" %>
+            <%== submit_tag "Reserve car #{car.id}" %>
           <% else %>
           <% end %>      
        </td>
