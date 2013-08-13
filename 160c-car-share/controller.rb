@@ -29,13 +29,15 @@ end
 get "/reservations/:id" do
 	@member = Member.where(id: params[:id]).first
 	@username == params[:username]
+	@reserved_cars = Car.where(reserving_member_id: params[:id]).all
   halt erb(:reservations)
 end
 
 post "/reservations/:id" do
 	if params[:commit] == "Logout"
 		redirect "/"
-	end	
+	end
+	@cars = Car.all 
 	@member = Member.where(id: params[:id]).first
 	@username == params[:username]
   halt erb(:reservations)
