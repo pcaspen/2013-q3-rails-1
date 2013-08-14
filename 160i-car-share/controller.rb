@@ -12,12 +12,14 @@ end
 post "/login" do
   @username = params[:username]
 
-  member = Member.find(1)
-  if @username == member.username
-    redirect "/reservations/1"
-  else
-    halt erb(:login)
+  [1, 2].each do |member_id|
+    member = Member.find(member_id)
+    if @username == member.username
+      redirect "/reservations/#{member_id}"
+    end
   end
+  
+  halt erb(:login)
 
 end
 
