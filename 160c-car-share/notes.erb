@@ -1,0 +1,22 @@
+CHECK ANSWERS IN HANDOUT
+
+Input: "jen"
+
+1. Look for jen in the members table
+
+Member.where(username: "jen").first
+
+2. see what ID she is
+
+Member.where(username: "jen").first.id
+
+3. find that id in the cars table under reserving_member_id
+
+Car.where(reserving_member_id: Member.where(username: "jen").first.id).all
+
+4. Look up the model for each of those cars' rows
+
+Car.where(reserving_member_id: Member.where(username: "jen").first.id).all.each do |car|
+ car.model
+end
+
