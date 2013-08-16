@@ -1,8 +1,0 @@
-<% if params[:commit] == "Answer 1" %>
-  <% episode_name = params[:episode_name] %>   <--this is what the user selects for this question
-  <% episode = Episode.where(name: episode_name).first %> <-- this uses the params and identifies what we are tying to match and ties it to the database
-  <% Collectible.where(episode_id: episode.id).all.each do |collectible| %> <-- this pulls matching collectibles out
-    <%= collectible.name %> <-- this prints the results
-    <br>
-  <% end %> <-- closes the loop
-<% end %>
