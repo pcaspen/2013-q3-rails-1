@@ -1,5 +1,9 @@
 <% if params[:commit] == "Answer 1" %>
-  <!-- TODO: answer here -->
+  <% episode_name = params[:episode_name] %>
+  <% episode_id = Episode.where(name: episode_name).first.id %>
+  <% Collectible.where(episode_id: episode_id).all.each do |collectible| %>
+    <%= collectible.name %><br>
+  <% end %>
 <% end %>
 
 <% if params[:commit] == "Answer 2" %>
@@ -13,3 +17,4 @@
 <% if params[:commit] == "Answer 4" %>
   <!-- TODO: answer here -->
 <% end %>
+
