@@ -12,9 +12,10 @@
           <%= recipe.name %>
         </a>
       </td>
-      <td>
-        <%= recipe.author.full_name %>
+      <td><a href="/by-author/<%= Author.where(id: recipe.author_id).first.full_name %>">
+            <%= Author.where(id: recipe.author_id).first.full_name %></a>
       </td>
     </tr>
   <% end %>
 </table>
+

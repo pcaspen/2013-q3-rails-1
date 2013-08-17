@@ -2,6 +2,7 @@ require '../dvc-sinatra.rb'
 
 get "/" do
   @recipes = Recipe.order(:id).all
+  @authors = Author.all
   @title = "All recipes"
   halt erb(:index)
 end
@@ -12,9 +13,8 @@ get "/recipe/:name" do
 end
 
 get "/by-author/:name" do
-  # TODO: assign to @recipes the recipes for this author
-  author_id = Author.where(name: params[:name]).id.first
-  @recipes = Recipe.where(author_id: author_id)
-  # TODO: assign to @title "Recipes by _____"
+  author = Author.where(full_name: params[:name]).first
+  @recipes = Recipe.where(author_id: author.id).all
+  @title = "Recipes by #{author.full_name}"
   halt erb(:index)
 end
