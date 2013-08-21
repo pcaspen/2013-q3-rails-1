@@ -40,46 +40,12 @@ get "/logout" do
   redirect "/login"
 end
 
-get "/accounts/:type" do
+get "/accounts/checking" do
   @user = User.where(id: session[:user_id]).first
-  @account = Account.where(user_id: @user.id, account_type: params[:type]).first
+  @account = Account.where(user_id: session[:user_id], account_type: "checking").first
   halt erb(:transactions)
 end
 
-post "/accounts/:type" do
-  @user = User.where(id: session[:user_id]).first
-  @account = Account.where(user_id: @user.id, account_type: params[:type]).first
-
-  balance = 0.00
-
-  @account.transactions.each do |txn|
-    txn.date = params["date_#{txn.id}"]
-    txn.memo = params["memo_#{txn.id}"]
-    txn.amount = params["amount_#{txn.id}"]
-    txn.save!
-
-    balance = balance + txn.amount
-
-    if params[:commit] == "Delete transaction #{txn.id}"
-      txn.destroy
-      balance = balance - txn.amount
-    end
-  end  
-
-  if params["date_new"] != ""
-    txn = Transaction.new
-    txn.account_id = @account.id
-    txn.date = params["date_new"]
-    txn.memo = params["memo_new"]
-    txn.amount = params["amount_new"]
-    txn.save!
-
-    balance = balance + txn.amount
-
-  end
-
-  @account.current_balance = balance
-  @account.save!
-
-  redirect "/accounts/#{@account.account_type}"
-end
+post "/accounts/checking" do
+  halt erb(:transactions)
+end  
