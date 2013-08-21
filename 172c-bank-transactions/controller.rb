@@ -48,13 +48,13 @@ end
 
 post "/accounts/:type" do
   @user = User.where(id: session[:user_id]).first
-  @account = Account.where(id: @user.id, account_type: params[:type]).first
+  @account = Account.where(user_id: @user.id, account_type: params[:type]).first
 
-  balance = BigDecimal(0)
+  balance = 0.00
 
   @account.transactions.each do |txn|
-    txn.date   = params["date_#{txn.id}"]
-    txn.memo   = params["memo_#{txn.id}"]
+    txn.date = params["date_#{txn.id}"]
+    txn.memo = params["memo_#{txn.id}"]
     txn.amount = params["amount_#{txn.id}"]
     txn.save!
 
@@ -64,17 +64,18 @@ post "/accounts/:type" do
       txn.destroy
       balance = balance - txn.amount
     end
-  end
+  end  
 
   if params["date_new"] != ""
     txn = Transaction.new
     txn.account_id = @account.id
-    txn.date       = params["date_new"]
-    txn.memo       = params["memo_new"]
-    txn.amount     = params["amount_new"]
+    txn.date = params["date_new"]
+    txn.memo = params["memo_new"]
+    txn.amount = params["amount_new"]
     txn.save!
 
     balance = balance + txn.amount
+
   end
 
   @account.current_balance = balance
