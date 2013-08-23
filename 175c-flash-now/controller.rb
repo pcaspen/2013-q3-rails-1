@@ -13,9 +13,11 @@ post "/login" do
 
   if named_user == nil 
     # TODO: show the user the message "Unknown username"
+    flash[:error] = "Unknown username"
     halt erb(:login)
   elsif named_user.authenticate(params[:password]) == false
     # TODO: show the user the message "Wrong password"
+    flash[:error] = "Wrong password"
     halt erb(:login)
   else
     session[:user_id] = named_user.id

@@ -10,6 +10,11 @@
   <body>
     <%# non-block form is needed to adapt Rails form helpers to Sinatra %>
     <%# request.path_info means POST action should be same as the GET URL %>
+    <% if flash.has?(:error) %>
+      <div class="flash-error">
+        <%= flash[:error] %>
+      </div>
+    <% end %>    
     <%== form_tag request.path_info %>
       <%== yield %>
     </form>
