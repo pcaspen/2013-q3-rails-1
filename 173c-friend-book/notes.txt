@@ -1,0 +1,25 @@
+
+
+From: davinci-coders-2013-q3-rails-1@googlegroups.com [mailto:davinci-coders-2013-q3-rails-1@googlegroups.com] On Behalf Of Daniel Stutzman
+Sent: Wednesday, August 21, 2013 1:30 PM
+To: davinci-coders-2013-q3-rails-1@googlegroups.com
+Subject: [DVC] Copy over migration from 173f to 173c
+
+Hi everyone,
+
+Please run the following commands to work on 173f:
+
+mkdir db/migrate
+cp -iv ../173f-friend-book/db/migrate/20130817233454_initial_schema.rb db/migrate
+
+Oops, the cp command might not work in Windows -- use Explorer instead, to copy the migration
+file by hand from db/migrate in 173f to db/migrate in 173c.
+
+That will give you the database migration file.
+
+--Daniel
+-- 
+You received this message because you are subscribed to the Google Groups "DaVinci Coders 2013 Q3 Rails 1" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to davinci-coders-2013-q3-rails-1+unsubscribe@googlegroups.com.
+To post to this group, send email to davinci-coders-2013-q3-rails-1@googlegroups.com.
+For more options, visit https://groups.google.com/groups/opt_out.

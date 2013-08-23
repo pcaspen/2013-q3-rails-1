@@ -1,4 +1,4 @@
-<h1>Transactions for checking</h1>
+<h1>Transactions for <%= @account.account_type %></h1>
 
 <table border="1">
   <tr>
@@ -7,12 +7,19 @@
     <th>Amount</th>
     <th></th>
   </tr>
-  <% @account.transactions.each do |txn| %>
+  <% @account.transactions.order(:date).each do |txn| %>
     <tr>
-      <td><%= txn.date %></td>
-      <td><%= txn.memo %></td>
-      <td><%= "%.2f" % txn.amount %></td>
+      <td><%== text_field_tag "date_#{txn.id}", txn.date %></td>
+      <td><%== text_field_tag "memo_#{txn.id}", txn.memo %></td>
+      <td>$<%== text_field_tag "amount_#{txn.id}", "%.2f" % txn.amount %></td>
       <td><%== submit_tag "Delete transaction #{txn.id}" %></td>
     </tr>
   <% end %>
+      <tr>
+      <td><%== text_field_tag :new_date %></td>
+      <td><%== text_field_tag :new_memo %></td>
+      <td>$<%== text_field_tag :new_amount %></td>
+    </tr>
 </table>
+<%== submit_tag "Save" %>
+<p>Warning: don't press Enter on this page; click Save instead.</p>
