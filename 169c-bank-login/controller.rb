@@ -12,8 +12,7 @@ post "/login" do
   found_user = User.where(username: params[:username]).first
 
   if found_user && params[:password] == found_user.password
-    session[:user_id] = found_user.id
-
+    session[:user_id] = found_user.id # TODO: store the ID of the found user in the session
     redirect "/accounts"
   else
     @error = "Incorrect username or password"
@@ -36,6 +35,7 @@ get "/rates" do
   halt erb(:rates)
 end
 
+# TODO: write logout handler
 get '/logout' do
   session.clear
   redirect "/login"
