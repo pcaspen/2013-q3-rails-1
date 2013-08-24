@@ -1,25 +1,21 @@
+<!-- TODO #1: create the view based on the mockup -->
+<!-- TODO #4: prefill the input elements based on instance variables -->
 <p>Favorite color<br>
-<%== select_tag :color,
-     options_for_select([
-     	["red"],
-     	["yellow"],
-     	["blue"]
-     	], @color),
-     	prompt: "" %>
-</p>   
-
-<p>Favorite letter<br>
-  <%== radio_button_tag :letter, "A", @letter == "A" %> A
-  <%== radio_button_tag :letter, "B", @letter == "B" %> B
-  <%== radio_button_tag :letter, "C", @letter == "C" %> C
+	<%== select_tag :color, options_for_select([
+		["red", 		"red"],
+		["yellow", 	"yellow"],
+		["green", 	"green"]
+		], @color),
+	  prompt: "" %>
 </p>
-
+<p>Favorite letter<br>
+	<%== radio_button_tag :letter, "A", @letter == "A" %>A
+	<%== radio_button_tag :letter, "B", @letter == "B" %>B
+  <%== radio_button_tag :letter, "C", @letter == "C" %>C
+</p>
 <p>Favorite number<br>
 	<%== text_field_tag :number, @number %>
 </p>
-
-<!-- TODO #4: prefill the input elements based on instance variables -->
-
 <p>
   <%== submit_tag "Update preferences" %>
 </p>
