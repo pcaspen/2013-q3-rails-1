@@ -55,7 +55,10 @@ post "/order/:id" do
 	end
   
 	if params[:commit] == "Pay and Close"
-
+    @order.paid_yet = true
+    @table.occupied = false
+    @order.save!
+    @table.save!
     redirect "/"
 	end	
  end
