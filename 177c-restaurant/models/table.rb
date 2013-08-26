@@ -1,3 +1,4 @@
 class Table < ActiveRecord::Base
-  validates :number_of_chairs, presence: true
+  has_many :orders
+  validates :total_chairs, presence: true
 end
