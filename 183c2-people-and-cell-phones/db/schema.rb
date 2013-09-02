@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20130830165937) do
 
   create_table "cell_phones", force: true do |t|
     t.string   "serial_number"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|
     t.string   "name"
-    t.integer  "cell_phone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

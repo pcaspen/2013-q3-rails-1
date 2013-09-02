@@ -1,3 +1,3 @@
 class Person < ActiveRecord::Base
-	belongs_to :cell_phone, class_name: "CellPhone", foreign_key: "cell_phone_id"
+	has_one :cell_phone, class_name: "CellPhone", foreign_key: "person_id"
 end
