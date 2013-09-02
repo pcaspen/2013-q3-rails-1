@@ -20,3 +20,4 @@ photo1.tags << tag2
 photo2.tags << tag1
 photo2.tags << tag3
 photo3.tags << tag3
+photo4.tags << nil
