@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 development:
   adapter: postgresql
   host: localhost
@@ -5,3 +6,12 @@ development:
   username: postgres
   password: postgres
   encoding: unicode
+=======
+development:
+  adapter: postgresql
+  host: localhost
+  database: "191"
+  username: postgres
+  password: postgres
+  encoding: unicode
+>>>>>>> 060f5ed75711f821bc5fa8683a2ddf4d3f15a711
