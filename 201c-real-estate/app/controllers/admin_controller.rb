@@ -1,4 +1,22 @@
 class AdminController < ApplicationController
+  
+  def login
+    render :login and return
+  end
+
+  def login_post
+    admin = Admin.where(username: params[:username]).first
+    if admin == nil
+      flash[:error] = "Wrong username"
+      redirect_to "/admin/login" and return      
+    elsif admin.authenticate(params[:password]) == false
+      flash[:error] = "Wrong password"
+      redirect_to "/admin/login" and return
+    else
+      redirect_to "/admin/houses" and return
+    end
+    render :login and return
+  end
 
   def index
     @houses = House.order(:id)

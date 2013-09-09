@@ -27,3 +27,8 @@ House.create! \
   num_stories:     1,
   num_square_feet: "7,000",
   image_url:       "http://farm8.staticflickr.com/7047/6973026131_8e733ee374.jpg"
+
+
+Admin.create! username: "bob", password: "123", password_confirmation: "123"
+Admin.create! username: "sue", password: "234", password_confirmation: "234"
+   
