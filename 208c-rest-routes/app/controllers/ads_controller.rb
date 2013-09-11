@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
 
   def root
-    redirect_to "/list_ads" and return
+    redirect_to "/ads" and return
   end
 
   def list_ads
@@ -53,7 +53,7 @@ class AdsController < ApplicationController
   def destroy_ad
     @ad = Ad.find(params[:id])
     @ad.destroy
-    redirect_to "/list_ads" and return
+    redirect_to "/ads" and return
   end
 
 end
