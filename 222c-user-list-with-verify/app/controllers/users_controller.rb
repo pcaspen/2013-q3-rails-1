@@ -13,21 +13,26 @@ class UsersController < ApplicationController
     render :new and return
   end
 
+
+
+
   def create
-    @user = User.new
+    @user                       = User.new
     @user.email                 = params[:email]
     @user.password              = params[:password]
     @user.password_confirmation = params[:password_confirmation]
+    @user.email_verification_token = rand(10 ** 8)
     if @user.save
-      session[:logged_in_user_id] = @user.id
-      flash[:success] = "Your account has been created"
+      
+      flash[:success] = "Please verify your email address by clicking the link in your email."
 
       Pony.mail(
         to:      @user.email,
         subject: "Thanks for registering",
-        body:    "You can login at #{users_url}."
-      )
+        body:    "Please click the following link to verify your email address:
+        #{verify_email_url(@user.id, @user.email_verification_token)}")
 
+      session[:logged_in_user_id] = @user.id
       redirect_to users_path and return
     else
       render :new and return
@@ -46,6 +51,33 @@ class UsersController < ApplicationController
 
   def logout
     session.clear
+    redirect_to users_path and return
+  end
+
+  def verify_email
+    user = User.where(id: params[:user_id]).first
+    if user != nil
+      if user.email_verification_token == params[:token]
+        user.was_email_verified = true
+        user.save! 
+        flash[:success] = "Email has been verified."
+        redirect_to users_path and return  
+      else
+        flash[:error] = "Wrong email verification token."
+      end  
+      redirect_to users_path and return
+    else
+      flash[:error] = "Couldn't find user with that ID"    
+    end
+  end
+
+  def resend_verification_email
+    Pony.mail(
+      to:      @user.email,
+      subject: "Thanks for registering",
+      body:    "Please click the following link to verify your email address:
+      #{verify_email_url(@user.id, @user.email_verification_token)}")
+    flash[:success] = "verification email sent."
     redirect_to users_path and return
   end
 end
