@@ -1,7 +1,7 @@
 <h2>Administrators</h2>
 <ul>
   <% User.where(is_admin: true).all.each do |user| %>
-    <li><%= user.first_name %> <%= user.last_name %></li>
+    <li><%= full_name(user) %></li>
   <% end %>
 </ul>
 
@@ -21,7 +21,7 @@
 
     <li>
       <%= user.first_name %> <%= user.last_name %> is
-
+      
       <% if age >= 21 %>
         <%= age %>
       <% else %>
@@ -30,7 +30,8 @@
 
       years old
 
-      (from <%= from_date.strftime('%Y-%m-%d') %> to <%= to_date.strftime('%Y-%m-%d') %>)
+      (from <%= format_date(user.birth_date) %> to 
+         <%= format_date(Date.new(2013, 9, 21)) %>)
     </li>
   <% end %>
 </ul>
