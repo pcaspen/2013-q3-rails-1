@@ -14,17 +14,9 @@
       <td><%= person.id %></td>
       <td><%= person.first_name %></td>
       <td><%= person.last_name %></td>
-      <td><%= person.first_name %> <%= person.last_name %></td>
+      <td><%= person.full_name %></td>
       <td><%= person.birth_date.strftime('%Y-%m-%d') %></td>
-      <td><%=
-        birthday_this_year = Date.new(
-          Date.today.year, person.birth_date.month, person.birth_date.day) 
-        if Date.today >= birthday_this_year
-          Date.today.year - person.birth_date.year
-        else
-          Date.today.year - person.birth_date.year - 1
-        end %>
-      </td>
+      <td><%= person.age %>
     </tr>
   <% end %>
 
